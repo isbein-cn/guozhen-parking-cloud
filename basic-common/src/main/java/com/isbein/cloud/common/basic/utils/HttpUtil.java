@@ -64,6 +64,19 @@ public class HttpUtil {
         return httpClient.newCall(request).execute();
     }
 
+    public static Response postJson(String url,String jsonString,Map<String,String> headers) throws IOException {
+        final RequestBody requestBody = RequestBody.create(jsonString,MediaType.get("application/json;charset=UTF-8"));
+        Request.Builder builder = new Request.Builder()
+                .url(url);
+        if (headers.size() > 0){
+            headers.forEach(builder::addHeader);
+        }
+        final Request request = builder
+                .post(requestBody)
+                .build();
+        return httpClient.newCall(request).execute();
+    }
+
     /**
      * post x-www-URLEncoded
      * @return
