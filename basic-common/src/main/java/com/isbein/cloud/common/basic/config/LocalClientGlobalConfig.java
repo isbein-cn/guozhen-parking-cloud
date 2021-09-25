@@ -1,13 +1,11 @@
 package com.isbein.cloud.common.basic.config;
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Data
 @Configuration
 @ConfigurationProperties(prefix = "local-client")
 public class LocalClientGlobalConfig {
@@ -16,6 +14,14 @@ public class LocalClientGlobalConfig {
      */
     private Map<Long,Integer> version = new HashMap<>();
 
+
+    public Map<Long, Integer> getVersion() {
+        return version;
+    }
+
+    public void setVersion(Map<Long, Integer> version) {
+        this.version = version;
+    }
 
     /**
      * 本地端版本
