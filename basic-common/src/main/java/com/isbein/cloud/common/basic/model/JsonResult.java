@@ -61,28 +61,28 @@ public class JsonResult<T> {
         this.data = data;
     }
 
-    public static RestResult error(String message) {
-        return new RestResult(WebCode.DEFAULTERROR, null, message);
+    public static JsonResult<?> error(String message) {
+        return new JsonResult<>(WebCode.DEFAULTERROR, null, message);
     }
-    public static RestResult error(String message,Object object) {
-        return new RestResult(WebCode.DEFAULTERROR, object, message);
-    }
-
-    public static RestResult ok() {
-        return new RestResult(WebCode.SUCCESS);
-    }
-    public static RestResult okay(String msg) {
-        return new RestResult(WebCode.SUCCESS, null, msg);
+    public static JsonResult<?> error(String message,Object object) {
+        return new JsonResult<>(WebCode.DEFAULTERROR, object, message);
     }
 
-    public static RestResult ok(Object object) {
-        return new RestResult(WebCode.SUCCESS, object);
+    public static JsonResult<?> ok() {
+        return new JsonResult<>(WebCode.SUCCESS);
     }
-    public static RestResult notLogin(){
-        return new RestResult(WebCode.USER_NEVER_LOGIN,null,"用户未登录");
+    public static JsonResult<?> okay(String msg) {
+        return new JsonResult<>(WebCode.SUCCESS, null, msg);
     }
-    public static RestResult noRole(){
-        return new RestResult(WebCode.USER_ROLE_ERR,null,"用户权限不足");
+
+    public static JsonResult<?> ok(Object object) {
+        return new JsonResult<>(WebCode.SUCCESS, object);
+    }
+    public static JsonResult<?> notLogin(){
+        return new JsonResult<>(WebCode.USER_NEVER_LOGIN,null,"用户未登录");
+    }
+    public static JsonResult<?> noRole(){
+        return new JsonResult<>(WebCode.USER_ROLE_ERR,null,"用户权限不足");
     }
 
 

@@ -13,7 +13,7 @@
 
     <groupId>com.isbein.cloud</groupId>
     <artifactId>parking-cloud</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -32,17 +32,17 @@
             <dependency>
                 <groupId>com.isbein.cloud</groupId>
                 <artifactId>basic-common</artifactId>
-                <version>1.0.2</version>
+                <version>1.0.3</version>
             </dependency>
             <dependency>
                 <groupId>com.isbein.cloud</groupId>
                 <artifactId>api-server-common</artifactId>
-                <version>1.0.2</version>
+                <version>1.0.3</version>
             </dependency>
             <dependency>
                 <groupId>com.isbein.cloud</groupId>
                 <artifactId>provider-common</artifactId>
-                <version>1.0.2</version>
+                <version>1.0.3</version>
             </dependency>
             <dependency>
                 <groupId>org.hprose</groupId>
