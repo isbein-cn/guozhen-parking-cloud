@@ -61,30 +61,23 @@ public class JsonResult<T> {
         this.data = data;
     }
 
-    public static JsonResult<?> error(String message) {
+    public static <T> JsonResult<T> error(String message) {
         return new JsonResult<>(WebCode.DEFAULTERROR, null, message);
     }
-    public static JsonResult<?> error(String message,Object object) {
+    public static <T> JsonResult<T> error(String message,T object) {
         return new JsonResult<>(WebCode.DEFAULTERROR, object, message);
     }
 
     public static JsonResult<?> ok() {
         return new JsonResult<>(WebCode.SUCCESS);
     }
-    public static JsonResult<?> okay(String msg) {
+    public static JsonResult<?> okWithMessage(String msg) {
         return new JsonResult<>(WebCode.SUCCESS, null, msg);
     }
 
-    public static JsonResult<?> ok(Object object) {
+    public static <T> JsonResult<T> ok(T object) {
         return new JsonResult<>(WebCode.SUCCESS, object);
     }
-    public static JsonResult<?> notLogin(){
-        return new JsonResult<>(WebCode.USER_NEVER_LOGIN,null,"用户未登录");
-    }
-    public static JsonResult<?> noRole(){
-        return new JsonResult<>(WebCode.USER_ROLE_ERR,null,"用户权限不足");
-    }
-
 
     public static JsonResult<?> paramError(List<JsonResult.ErrorParam> params){
         JsonResult<?> result = new JsonResult<>();

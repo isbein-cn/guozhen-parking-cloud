@@ -15,10 +15,6 @@ public class RestResult {
     private boolean result=true;
     private String message="";
     private Object data;
-    @JSONField(serialize = false)// 此对象不再序列号成json
-    private Exception exception;
-    @JSONField(serialize = false)// 此对象不再序列号成json
-    private WebCode errorWebCode;
     @JSONField(ordinal = 100)
     private List<ErrorParam> errorParams;
     @SuppressWarnings("unused")
@@ -26,25 +22,19 @@ public class RestResult {
     }
 
     public RestResult(WebCode errorWebCode) {
-        this.errorWebCode = errorWebCode;
         this.result = errorWebCode.getStatus() == 1;
         this.message = errorWebCode.getDesp();
-        this.exception = errorWebCode.getException();
     }
 
     public RestResult(WebCode errorWebCode, Object data) {
-        this.errorWebCode = errorWebCode;
         this.result = errorWebCode.getStatus() == 1;
         this.message = errorWebCode.getDesp();
-        this.exception = errorWebCode.getException();
         this.data =data;
     }
 
     public RestResult(WebCode errorWebCode, Object data, String msg) {
-        this.errorWebCode = errorWebCode;
         this.result = errorWebCode.getStatus() == 1;
         this.message = msg;
-        this.exception = errorWebCode.getException();
         this.data=data;
     }
 
@@ -54,22 +44,6 @@ public class RestResult {
 
     public void setData(Object data) {
         this.data = data;
-    }
-
-    public void setException(Exception exception) {
-        this.exception = exception;
-    }
-
-    public Exception getException() {
-        return this.exception;
-    }
-
-    public WebCode getErrorWebCode() {
-        return errorWebCode;
-    }
-
-    public void setErrorWebCode(WebCode errorWebCode) {
-        this.errorWebCode = errorWebCode;
     }
 
     public static RestResult exception() {
