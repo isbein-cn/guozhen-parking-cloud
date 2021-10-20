@@ -84,7 +84,56 @@ public class Pager<T> {
         this.list = list;
     }
 
-    public static <T> Pager<T> build(){
-        return new Pager<>();
+
+    public static class Builder<T2>{
+        private long total;
+        private int pageNum = 1;
+        private int pageSize = 10;
+        private List<T2> list;
+
+        public Builder<T2> setTotal(long total) {
+            this.total = total;
+            return this;
+        }
+
+        public long getTotal() {
+            return total;
+        }
+
+        public int getPageNum() {
+            return pageNum;
+        }
+
+        public Builder<T2> setPageNum(int pageNum) {
+            this.pageNum = pageNum;
+            return this;
+        }
+
+        public int getPageSize() {
+            return pageSize;
+        }
+
+        public Builder<T2> setPageSize(int pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        public List<T2> getList() {
+            return list;
+        }
+
+        public Builder<T2> setList(List<T2> list) {
+            this.list = list;
+            return this;
+        }
+
+        public Pager<T2> build(){
+            Pager<T2> pager = new Pager<>();
+            pager.setList(list);
+            pager.setPageNum(pageNum);
+            pager.setPageSize(pageSize);
+            pager.setTotal(total);
+            return pager;
+        }
     }
 }
